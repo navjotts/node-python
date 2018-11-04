@@ -1,0 +1,15 @@
+html
+    head
+        title=title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='/js/client.js')
+    body
+        div(class='center')
+            div(class='title')='nodejs - python'
+            div(class='content')
+                button(id='test-button',
+                        class='test-button',
+                        type='button',
+                        onclick='fireTest()')='Test Python'
+                div(class='result-label')
+                    label(id='result-label')

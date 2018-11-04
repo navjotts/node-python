@@ -1,0 +1,41 @@
+body {
+    background-color: #fff;
+}
+
+.center {
+    margin: auto;
+    padding: 10px;
+    padding-left:50px;
+    padding-right:50px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.title {
+    font-size: 30px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    color: #262626;
+}
+
+.content {
+    margin-top: 10em;
+}
+
+button.test-button {
+    width: 200px;
+    height: 40px;
+    border: solid 1px #4a90e2;
+    border-radius: 2px;
+    background-color: #4a90e2;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+button:focus {outline:0;}
+
+.result-label {
+    margin-top: 0.5em;
+    padding: 10px;
+    font-size: 13px;
+}

@@ -1,8 +1,10 @@
 import zerorpc
 
+from test_python import test_me
+
 class PythonServer(object):
     def test(self, param):
-        return 'Hello World! - from python'
+        return test_me(param)
 
 try:
     s = zerorpc.Server(PythonServer())

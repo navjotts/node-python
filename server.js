@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const multer = require('multer')
+const upload = multer({ dest: 'imgs/' })
 
 const PythonConnector = require('./PythonConnector.js');
 
@@ -21,16 +23,16 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-    console.log(req.url);
-    res.render('index', {title: 'Demo App'});
+    res.render('index', { title: 'Image Prediction Python/NodeJS App' });
 });
 
-app.get('/test', async function (req, res, next) {
-    console.log(req.url);
-    var pyRes = await PythonConnector.invoke('test', 'None');
-    var data = {result: pyRes}
-    res.json(data);
-});
+app.post('/predict', upload.single('img'), async function (req, res) {
+  // Our prediction endpoint. Receives an image as req.file
+  const { path } = req.file
+  const prediction = await PythonConnector.invoke('predict_from_img', path)
+  const { predict } = JSON.parse(prediction)
+  res.json({ predict })
+})
 
 app.get('*', function (req, res, next) {
     var err = new Error();
@@ -39,10 +41,7 @@ app.get('*', function (req, res, next) {
 });
 
 app.use(function (err, req, res, next) {
-    if (err.status !== 404) {
-        return next(err);
-    }
-
+    if (err.status !== 404) return next(err);
     res.status(500);
     res.render('error', { error: err });
 });

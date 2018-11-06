@@ -2,14 +2,13 @@ html
     head
         title=title
         link(rel='stylesheet', href='/stylesheets/style.css')
-        script(src='/js/client.js')
     body
         div(class='center')
-            div(class='title')='nodejs - python'
+            div(class='title')='Predict from Image'
             div(class='content')
-                button(id='test-button',
-                        class='test-button',
-                        type='button',
-                        onclick='fireTest()')='Test Python'
+                div
+                  input(type='file', id='file-upload')
                 div(class='result-label')
                     label(id='result-label')
+    footer
+        script(src='/js/client.js')

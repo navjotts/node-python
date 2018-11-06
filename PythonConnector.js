@@ -1,6 +1,5 @@
 const spawn = require('child_process').spawn;
 const path = require('path');
-
 const zerorpc = require('zerorpc');
 const Utils = require('./Utils.js');
 
@@ -19,12 +18,10 @@ class PythonConnector {
             PythonConnector.zerorpcProcess.stderr.on('data', function(data) {
                 console.error('python:', data.toString());
             });
-
             PythonConnector.zerorpc = new zerorpc.Client({'timeout': TIMEOUT, 'heartbeatInterval': TIMEOUT*1000});
             PythonConnector.zerorpc.connect('tcp://' + IP + ':' + PORT);
             PythonConnector.connected = true;
         }
-
         return PythonConnector.zerorpc;
     }
 

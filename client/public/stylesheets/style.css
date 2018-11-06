@@ -22,16 +22,6 @@ body {
     margin-top: 10em;
 }
 
-button.test-button {
-    width: 200px;
-    height: 40px;
-    border: solid 1px #4a90e2;
-    border-radius: 2px;
-    background-color: #4a90e2;
-    font-size: 13px;
-    color: #ffffff;
-}
-
 button:focus {outline:0;}
 
 .result-label {

@@ -26,8 +26,12 @@ class PythonConnector {
     }
 
     static async invoke(method, ...args) {
-        var zerorpc = PythonConnector.server();
+      try {
+        const zerorpc = PythonConnector.server();
         return await Utils.promisify(zerorpc.invoke, zerorpc, method, ...args);
+      } catch (e) {
+        return Promise.reject(e)
+      }
     }
 }
 

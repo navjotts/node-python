@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs')
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer')
@@ -26,19 +27,18 @@ app.get('/', function (req, res) {
     res.render('index', { title: 'Image Prediction Python/NodeJS App' });
 });
 
+// Our prediction endpoint
 app.post('/predict', upload.single('img'), async function (req, res) {
   // Our prediction endpoint. Receives an image as req.file
   const { path } = req.file
   const prediction = await PythonConnector.invoke('predict_from_img', path)
   const { predict } = JSON.parse(prediction)
   res.json({ predict })
+  fs.unlink(path, (err) => {
+    if (err) console.error(err)
+    console.log('Cleaned up', path)
+  })
 })
-
-app.get('*', function (req, res, next) {
-    var err = new Error();
-    err.status = 404;
-    next(err);
-});
 
 app.use(function (err, req, res, next) {
     if (err.status !== 404) return next(err);

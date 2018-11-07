@@ -1,17 +1,22 @@
 const HOSTURL = 'http://localhost:3030'
 const input = document.querySelector('#file-upload')
 
-function onSelectFile() {
+function onFileSelect() {
   const [file] = input.files
   predict(file)
 }
 
-function predict(img) {
+function convertToFormData(key, val) {
   const body = new FormData()
-  body.append('img', img)
+  body.append(key, val)
+  return body
+}
+
+function predict(img) {
+
   fetch(`${HOSTURL}/predict`, {
     method: 'POST',
-    body
+    body: convertToFormData('img', img)
   })
     .then(async (response) => {
       try {
@@ -24,4 +29,4 @@ function predict(img) {
     .catch(err => alert (err))
 }
 
-input.addEventListener('change', onSelectFile);
+input.addEventListener('change', onFileSelect);

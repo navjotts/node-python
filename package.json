@@ -16,8 +16,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "multer": "^1.4.1",
+    "pkg-config": "^1.1.1",
     "pug": "^2.0.3",
-    "zmq": "^2.15.3",
-    "zerorpc": "^0.9.7"
+    "zerorpc": "^0.9.7",
+    "zmq": "^2.15.3"
   }
 }

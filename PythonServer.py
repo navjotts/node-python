@@ -17,7 +17,7 @@ def setup_model(path_to_pth_file, learner_name_to_load, classes, resnet_num=34, 
     if (normalizer is not None): data.normalize(normalizer)
     # Specify resnet: 18, 34, 50, 101, 152
     resnet = get_resnet(resnet_num)
-    learn = create_cnn(data, resnet)
+    learn = create_cnn(data, resnet, pretrained=False)
     learn.load(learner_name_to_load)
     return learn
 

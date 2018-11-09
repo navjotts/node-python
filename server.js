@@ -27,9 +27,8 @@ app.get('/', function (req, res) {
     res.render('index', { title: 'Image Prediction Python/NodeJS App' });
 });
 
-// Our prediction endpoint
+// Our prediction endpoint (Receives an image as req.file)
 app.post('/predict', upload.single('img'), async function (req, res) {
-  // Our prediction endpoint. Receives an image as req.file
   const { path } = req.file
   const prediction = await PythonConnector.invoke('predict_from_img', path)
   const { predict } = JSON.parse(prediction)

@@ -13,7 +13,7 @@ function convertToFormData(key, val) {
 }
 
 function predict(img) {
-
+  document.getElementById('result-label').innerHTML = 'Loading...'
   fetch(`${HOSTURL}/predict`, {
     method: 'POST',
     body: convertToFormData('img', img)

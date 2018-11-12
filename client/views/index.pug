@@ -2,13 +2,14 @@ html
     head
         title=title
         link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css')
     body
         div(class='center')
-            div(class='title')='Predict from Image'
-            div(class='content')
+            div(class='f1 title avenir b')='Node/Python Deep Learning Boilerplate'
+            div(class='content sans-serif')
                 div
                   input(type='file', id='file-upload')
-                div(class='result-label')
+                div(class='result-label f4')
                     label(id='result-label')
     footer
         script(src='/js/client.js')

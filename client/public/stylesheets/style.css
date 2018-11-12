@@ -1,5 +1,6 @@
 body {
-    background-color: #fff;
+    background-color: #19a974;
+    color: #fff;
 }
 
 .center {
@@ -12,7 +13,6 @@ body {
 }
 
 .title {
-    font-size: 30px;
     margin-top: 1em;
     margin-bottom: 1em;
     color: #262626;

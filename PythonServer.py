@@ -4,10 +4,11 @@ from fastai import *
 from fastai.vision import *
 import zerorpc
 
-# SETUP HERE
+##################### SETUP HERE #######################################
 YOUR_CLASSES_HERE = ['black', 'grizzly', 'teddys'] # Your class labels
 NAME_OF_PTH_FILE = 'stage-2' # Name of your exported `.pth` file
 PATH_TO_MODELS_DIR = Path('.') # by default just use /models in root dir
+########################################################################
 
 def setup_model(path_to_pth_file, learner_name_to_load, classes, resnet_num=34, tfms=get_transforms(), normalizer=None, **kwargs):
     "Initialize our learner for inference"

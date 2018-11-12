@@ -30,7 +30,7 @@ NAME_OF_PTH_FILE = 'stage-2' # Name of your exported `.pth` file
 
 1. Add your class labels
 2. Add the name of your `.pth`
-3. If you put your `.pth` file in /models, or somewhere else
+3. If you put your `.pth` file somewhere other than `/models`, replace PATH_TO_MODELS_DIR with that directory.
 
 > Something broken?
 > @zachcaceres

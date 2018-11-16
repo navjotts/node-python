@@ -29,14 +29,21 @@ app.get('/', function (req, res) {
 
 // Our prediction endpoint (Receives an image as req.file)
 app.post('/predict', upload.single('img'), async function (req, res) {
-  const { path } = req.file
-  const prediction = await PythonConnector.invoke('predict_from_img', path)
-  const { predict } = JSON.parse(prediction)
-  res.json({ predict })
-  fs.unlink(path, (err) => {
-    if (err) console.error(err)
-    console.log('Cleaned up', path)
-  })
+    const { path } = req.file
+    try {
+        const prediction = await PythonConnector.invoke('predict_from_img', path);
+        res.json(prediction);
+    }
+    catch (e) {
+        console.log(`error in ${req.url}`, e);
+        res.sendStatus(404);
+    }
+
+    // delete the uploaded file (regardless whether prediction successful or not)
+    fs.unlink(path, (err) => {
+        if (err) console.error(err)
+        console.log('Cleaned up', path)
+    })
 })
 
 app.use(function (err, req, res, next) {

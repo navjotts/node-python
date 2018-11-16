@@ -3,6 +3,12 @@ const input = document.querySelector('#file-upload')
 
 function onFileSelect() {
   const [file] = input.files
+  var reader = new FileReader()
+  reader.onload = function (e) {
+      document.getElementById('image-picked').src = e.target.result
+      document.getElementById('image-picked').className = ''
+  }
+  reader.readAsDataURL(file)
   predict(file)
 }
 
@@ -20,7 +26,7 @@ function predict(img) {
   })
     .then(async (response) => {
       try {
-        const { predict } = await response.json();
+        const { predict } = await response.json()
         document.getElementById('result-label').innerHTML = predict
       } catch (e){
         alert(e.message)

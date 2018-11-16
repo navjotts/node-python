@@ -1,6 +1,10 @@
 body {
-    background-color: #19a974;
-    color: #fff;
+    background-color: #FCFCFC;
+    color: #000;
+}
+
+.no-display {
+    display: none;
 }
 
 .center {
@@ -25,7 +29,14 @@ body {
 button:focus {outline:0;}
 
 .result-label {
-    margin-top: 0.5em;
-    padding: 10px;
     font-size: 13px;
+}
+
+.bottom-border-span {
+    border-bottom: 1px solid #B5000D;
+    padding-bottom: 10px;
+}
+
+.image-container {
+    margin: 30px;
 }

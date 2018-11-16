@@ -53,4 +53,7 @@ app.use(function (err, req, res, next) {
 });
 
 const PORT = process.env.PORT || 3030;
-app.listen(PORT, () => console.log(`Started listening on port ${PORT} ...`));
+app.listen(PORT, async () => {
+    console.log(`Started listening on port ${PORT} ...`);
+    await PythonConnector.invoke('listen');
+});

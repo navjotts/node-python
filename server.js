@@ -27,9 +27,15 @@ app.get('/', function (req, res) {
 
 app.get('/test', async function (req, res, next) {
     console.log(req.url);
-    var pyRes = await PythonConnector.invoke('test', 'None');
-    var data = {result: pyRes}
-    res.json(data);
+    try {
+        var pyRes = await PythonConnector.invoke('test', 'None');
+        var data = {result: pyRes}
+        res.json(data);
+    }
+    catch (e) {
+        console.log('error in /test', e);
+        res.send(404);
+    }
 });
 
 app.get('*', function (req, res, next) {
@@ -48,4 +54,7 @@ app.use(function (err, req, res, next) {
 });
 
 const PORT = process.env.PORT || 3030;
-app.listen(PORT, () => console.log(`Started listening on port ${PORT} ...`));
+app.listen(PORT, async () => {
+    console.log(`Started listening on port ${PORT} ...`);
+    await PythonConnector.invoke('listen');
+});

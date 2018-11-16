@@ -1,4 +1,5 @@
-const HOSTURL = 'http://localhost:3030'
+var loc = window.location
+const HOSTURL = `${loc.protocol}//${loc.hostname}:${loc.port}`
 const input = document.querySelector('#file-upload')
 
 function onFileSelect() {

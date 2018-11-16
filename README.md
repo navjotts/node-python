@@ -23,16 +23,16 @@ Export your Pytorch model as `model-name.pth`.
 
 Put your `.pth` in `/models`.
 
-At the top of `PythonServer.py` you'll see:
+At the top of `model_fastai.py` you'll see:
 ```py
-####################### SETUP HERE #########################
+# SETUP HERE
 YOUR_CLASSES_HERE = ['black', 'grizzly', 'teddys'] # Your class labels
 NAME_OF_PTH_FILE = 'stage-2' # Name of your exported `.pth` file
 ```
 
 1. Add your class labels
 2. Add the name of your `.pth`
-3. If you put your `.pth` file somewhere other than `/models`, replace PATH_TO_MODELS_DIR with that directory.
+3. If you put your `.pth` file somewhere other than `/models`, replace `PATH_TO_MODELS_DIR` with that directory.
 4. `npm start`
 
 > Something broken?

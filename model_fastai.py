@@ -5,6 +5,7 @@ from fastai.vision import *
 # SETUP HERE
 YOUR_CLASSES_HERE = ['black', 'grizzly', 'teddys'] # Your class labels
 NAME_OF_PTH_FILE = 'stage-2' # Name of your exported `.pth` file
+
 PATH_TO_MODELS_DIR = Path('.') # by default just use /models in root dir
 
 class FastaiImageClassifier(object):
